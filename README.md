@@ -46,11 +46,11 @@ Além disso, foi realizada uma **pesquisa teórica** sobre os conceitos de **Any
 
 **Opção 1: Executar diretamente com o caminho completo**
 ```python
-python caminho/para/o/arquivo/extraído/calculadora_IPv6/código/calculadora.py
+python caminho/para/o/arquivo/extraído/caluladora_IPv6/código/calculadora.py
 ```
 **Opção 2: Navegar até o diretório e executar**
 ```python
-cd caminho/para/o/arquivo/extraído/calculadora_IPv6/código
+cd caminho/para/o/arquivo/extraído/caluladora_IPv6/código
 python calculadora.py
 ```
 
