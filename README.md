@@ -21,13 +21,21 @@ Além disso, foi realizada uma **pesquisa teórica** sobre os conceitos de **Any
 ## 📁 Estrutura do Projeto
 
 calculadora_IPv6/
+
 │
+
 ├── código/
+
 │   ├── calculadora.py # Script principal da calculadora IPv6
+
 │   └── funcoes
+
 │       ├── aux.py # implementação de funções auxiliares
+
 │       └── calc.py # implementação das funções utilizadas
+
 ├── pesquisa/
+
     └── anycast_multicast.pdf # Documento teórico sobre Anycast e Multicast
 
 ---
@@ -45,11 +53,11 @@ calculadora_IPv6/
 ### 2. Executar o Código
 
 **Opção 1: Executar diretamente com o caminho completo**
-```bash
+```python
 python caminho/para/o/arquivo/extraído/calculadora_IPv6/código/calculadora.py
 ```
 **Opção 2: Navegar até o diretório e executar**
-```bash
+```python
 cd caminho/para/o/arquivo/extraído/calculadora_IPv6/código
 python calculadora.py
 ```
