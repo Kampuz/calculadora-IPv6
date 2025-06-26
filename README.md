@@ -1,4 +1,4 @@
-# Segundo Trabalho de Redes de Computadores I
+# Trabalho de Redes de Computadores I
 
 ## Projeto: Calculadora IPv6  
 **Desenvolvido em:** Visual Studio Code  
