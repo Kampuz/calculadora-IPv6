@@ -30,6 +30,7 @@ calculadora_IPv6/
 │
 └── pesquisa/
     └── anycast_multicast.pdf    # Documento teórico sobre Anycast e Multicast
+
 ---
 
 ## ⚙️ Como Utilizar
