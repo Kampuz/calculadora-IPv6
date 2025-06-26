@@ -1,0 +1,80 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{setspace}       % Espaçamento
+\usepackage{helvet}         % Fonte Arial (Helvetica similar)
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{indentfirst}    % Indenta o primeiro parágrafo
+\usepackage[a4paper,margin=2.5cm]{geometry}  % Margens
+\usepackage{cite}           % Referências numéricas
+\usepackage{hyperref}       % Links no sumário (opcional)
+
+% Espaçamento 1,5
+\onehalfspacing
+
+\title{Anycast e Multicast no IPv6}
+\author{Miguel de Campos Rodrigues Moret}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\newpage
+
+\section{Introdução}
+
+Com o crescimento exponencial da internet e o surgimento de novas demandas por serviços de rede mais eficientes, seguros e escaláveis, tornou-se necessária a evolução do protocolo IP. O IPv4, utilizado desde as primeiras fases da internet, passou a apresentar limitações críticas, como o esgotamento dos endereços disponíveis e a ineficiência em lidar com comunicações modernas e distribuídas. Diante disso, o IPv6 foi desenvolvido como uma solução de longo prazo, oferecendo um espaço de endereçamento significativamente maior, além de melhorias substanciais nos mecanismos de roteamento e entrega de pacotes.
+
+Entre essas melhorias, destacam-se os métodos de entrega anycast e multicast, que permitem otimizar a transmissão de dados em redes de larga escala. O anycast possibilita que um pacote seja entregue ao destino mais próximo dentro de um grupo de receptores que compartilham o mesmo endereço, favorecendo o balanceamento de carga e a eficiência na entrega. Já o multicast permite que um único transmissor envie dados simultaneamente a vários destinos interessados, reduzindo o consumo de largura de banda e melhorando a performance em aplicações de transmissão em grupo.
+
+Neste trabalho, serão apresentados os conceitos de anycast e multicast, suas diferenças, aplicações práticas e como são implementados e utilizados dentro da arquitetura do IPv6. Com isso, busca-se demonstrar a importância dessas técnicas para o funcionamento eficiente das redes atuais e futuras.
+
+\section{Anycast}
+
+O anycast é uma técnica de endereçamento e roteamento em redes IP onde vários dispositivos compartilham o mesmo endereço IP. Nesse modelo, quando um pacote é enviado para um endereço anycast, ele é roteado para o dispositivo mais próximo com base na métrica de roteamento, como menor número de saltos, latência ou custo de tráfego. Esse comportamento contrasta com o modelo unicast tradicional, onde cada endereço representa um único receptor.
+
+A principal vantagem do anycast é a capacidade de distribuir serviços de forma geograficamente eficiente. Por exemplo, serviços DNS de alto desempenho frequentemente utilizam anycast para garantir que os clientes acessem servidores mais próximos, reduzindo o tempo de resposta e aumentando a confiabilidade. Além disso, o anycast é amplamente utilizado em Content Delivery Networks (CDNs) e em infraestrutura de servidores-raiz da internet.
+
+No contexto do IPv6, o anycast é suportado nativamente. Alguns endereços anycast são definidos de forma padrão, como o endereço de roteador padrão (default router). O suporte do IPv6 ao anycast facilita sua implementação em redes modernas, especialmente em ambientes com alta demanda por disponibilidade e baixa latência.
+
+\section{Multicast}
+
+O multicast é um modelo de comunicação em redes IP no qual os pacotes são enviados de um emissor para um grupo de receptores interessados. Diferentemente do unicast (um para um) e do broadcast (um para todos), o multicast segue um modelo um-para-muitos eficiente, economizando largura de banda ao evitar a duplicação desnecessária de pacotes.
+
+O IPv6 introduz melhorias significativas no suporte ao multicast em relação ao IPv4. Por exemplo, não existe o conceito de broadcast no IPv6; em vez disso, utiliza-se multicast para alcançar grupos específicos de dispositivos. Endereços multicast IPv6 começam com o prefixo FF00::/8, e diferentes escopos e grupos podem ser definidos por meio de bits adicionais no endereço.
+
+Aplicativos típicos que se beneficiam do multicast incluem transmissões de vídeo ao vivo, videoconferências, atualizações de software simultâneas e jogos online. O multicast também é fundamental para o funcionamento de protocolos essenciais do IPv6, como o Neighbor Discovery Protocol (NDP), que utiliza multicast para descobrir dispositivos na mesma rede.
+
+\section{Anycast e Multicast no IPv6}
+
+O IPv6 foi projetado desde o início para incluir suporte robusto a both anycast e multicast, ao contrário do IPv4, no qual esses conceitos eram pouco desenvolvidos ou necessitavam de soluções auxiliares.
+
+No caso do anycast, o IPv6 define que qualquer endereço unicast pode ser utilizado como endereço anycast desde que seja atribuído a múltiplos dispositivos. A seleção do destino mais próximo é feita automaticamente pelos protocolos de roteamento, como o OSPFv3 e o BGP. Isso simplifica a distribuição de serviços redundantes e melhora a resiliência da rede.
+
+Já o multicast desempenha um papel ainda mais central no IPv6. Muitos dos protocolos essenciais dependem do multicast para operações cotidianas. Por exemplo, a autoconfiguração de endereços, descoberta de vizinhos e resolução de endereços MAC utilizam grupos multicast específicos para comunicar-se com dispositivos dentro de um mesmo link.
+
+A ausência de broadcast no IPv6 é uma escolha intencional que visa evitar tráfego desnecessário. Com isso, o multicast se torna a solução preferencial para comunicação em grupo, tornando as redes mais eficientes e escaláveis.
+
+\section{Conclusão}
+
+A implementação nativa de anycast e multicast no IPv6 representa um avanço significativo em relação à versão anterior do protocolo IP. Ambas as técnicas contribuem diretamente para a eficiência, escalabilidade e resiliência das redes modernas.
+
+O anycast se mostra essencial em cenários onde é necessário oferecer serviços com alta disponibilidade e baixa latência, enquanto o multicast permite uma distribui\-ção de dados mais racional e econômica em situações de comunicação em grupo. O suporte aprimorado a essas funcionalidades no IPv6 torna o protocolo mais preparado para atender às demandas crescentes da internet, incluindo aplicações em nuvem, IoT e serviços multimídia em tempo real.
+
+Com isso, reforça-se a importância da transição e adoção do IPv6 como um passo estratégico para a evolução das redes digitais.
+
+\section{Bibliografia}
+
+COMER, Douglas E. \textit{Interligação de Redes com TCP/IP - Volume 1: Princípios, Protocolos e Arquitetura}. 6. ed. Elsevier, 2015.
+
+TANENBAUM, Andrew S.; WETHERALL, David. \textit{Redes de Computadores}. 5. ed. Pearson, 2011.
+
+HINDEN, R.; DEERING, S. \textit{IP Version 6 Addressing Architecture}. RFC 4291, Dezembro 2006. Disponível em: https://www.rfc-editor.org/rfc/rfc4786
+
+CISCO. \textit{IPv6 Multicast Overview}. Disponível em: \\ https://www.cisco.com/en/US/docs/ios-xml/ios/15-0se/features/ip6-mcast-gen.pdf.
+
+Thubert, P. \textit{Listener Subscription for IPv6 Neighbor Discovery}. RFC 9685, Novembro 2024. Disponível em: https://www.rfc-editor.org/rfc/rfc9685
+
+\end{document}
