@@ -21,23 +21,15 @@ Além disso, foi realizada uma **pesquisa teórica** sobre os conceitos de **Any
 ## 📁 Estrutura do Projeto
 
 calculadora_IPv6/
-
 │
-
 ├── código/
-
-│   ├── calculadora.py # Script principal da calculadora IPv6
-
-│   └── funcoes
-
-│       ├── aux.py # implementação de funções auxiliares
-
-│       └── calc.py # implementação das funções utilizadas
-
-├── pesquisa/
-
-    └── anycast_multicast.pdf # Documento teórico sobre Anycast e Multicast
-
+│   ├── calculadora.py           # Script principal da calculadora IPv6
+│   └── funcoes/
+│       ├── aux.py               # Funções auxiliares
+│       └── calc.py              # Funções de cálculo IP
+│
+└── pesquisa/
+    └── anycast_multicast.pdf    # Documento teórico sobre Anycast e Multicast
 ---
 
 ## ⚙️ Como Utilizar
